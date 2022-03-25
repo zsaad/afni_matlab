@@ -360,6 +360,11 @@ end
 	%FWHM
 		[err, Info.WORSLEY_FWHM] = BrikInfo_SectionValue(BRIKinfo, 'WORSLEY_FWHM');	
 	
+  %try
+  %ATLAS_LABEL_TABLE (if present)
+    [err, atlastable] = BrikInfo_SectionValue(BRIKinfo, 'ATLAS_LABEL_TABLE');	
+    Info.ATLAS_LABEL_TABLE = parse_atlastable(atlastable);
+  %end
 	itype = unique(Info.BRICK_TYPES);
  
  	if (length(itype) > 1),
